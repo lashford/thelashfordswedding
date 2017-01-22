@@ -1,20 +1,28 @@
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" ng-click="nc.isNavCollapsed = !nc.isNavCollapsed">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+<header id="header" class="navbar navbar-default navbar-static-top" >
+  <div class="clearfix">
+
+    <span class="hd-logo">The Lashfords</span>
+
+    <!-- responsive menu -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" ng-click="nc.isNavCollapsed = !nc.isNavCollapsed">
+        <span class="sr-only">Navigation Menu</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">
-      <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
-    </a>
+    <!-- /responsive menu -->
+
+    <!-- menu -->
+    <nav class="hd-nav nav navbar-nav navbar-right navbar-collapse collapse" uib-collapse="nc.isNavCollapsed">
+      <ul class="nav navbar-nav hd-list-menu clearfix">
+        <li>
+          <a>
+            <span class="link-title">Home</span>
+            <span class="link-subtitle">countdown</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /menu -->
   </div>
-  <div class="collapse navbar-collapse" uib-collapse="nc.isNavCollapsed">
-    <ul class="nav navbar-nav">
-      <li><a href="#">Link 1</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Link 2</a></li>
-    </ul>
-  </div>
-</nav>
+</header>
