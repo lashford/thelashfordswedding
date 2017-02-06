@@ -1,6 +1,6 @@
 # Template Github Pages site
 
-Angular 1.5 and bootstrap 3 template site, includes gulp build scripts to publish to gh-pages, run protractor tests unit tests and full End2End feature tests. 
+Angular 1.5 and bootstrap 3 template site, includes gulp build scripts to publish to gh-pages, run protractor tests unit tests and full End2End feature tests.
 
 Usual github process should be used, with regular commits and pushes to `master` branch.
 
@@ -10,14 +10,18 @@ open terminal and change to directory of where the repo has been cloned to i.e
 
 `cd ~\source\template-github-pages`
 
-You will need both `npm` and `gulp` installed globally on your machine. Google is your friend here. :-)
+You will need `npm` installed globally on your machine. Google is your friend here. :-)
 
 ```bash
 npm install
 ```
 
 ```bash
-gulp install -g bower
+npm install -g gulp
+```
+
+```bash
+npm install -g bower
 ```
 
 ```bash

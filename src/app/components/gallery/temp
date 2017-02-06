@@ -1,0 +1,73 @@
+
+<!-- item -->
+<div class="mansonry-item col-sm-3" style="position: absolute; left: 0px; top: 0px;">
+  <a href="/gallery">
+    <img src="/assets/images/venue/bar.jpg" alt="">
+    <div class="picture-legend">Bar!</div>
+    <div class="mask"></div>
+  </a>
+</div>
+<!-- /item -->
+<!-- item -->
+<div class="mansonry-item col-sm-3" style="position: absolute; left: 202px; top: 0px;">
+  <a href="/gallery">
+    <img src="/assets/images/venue/ceremony.jpg" alt="">
+    <div class="picture-legend">Ceremony</div>
+    <div class="mask"></div>
+  </a>
+</div>
+<!-- /item -->
+<!-- item <-->
+<div class="mansonry-item col-sm-3" style="position: absolute; left: 404px; top: 0px;">
+  <a href="/gallery">
+    <img src="/assets/images/venue/cows.jpg" alt="">
+    <div class="picture-legend">PhotoBomb</div>
+    <div class="mask"></div>
+  </a>
+</div>
+<!-- /item -->
+<!-- item <-->
+<div class="mansonry-item col-sm-3" style="position: absolute; left: 606px; top: 0px;">
+  <a href="/gallery">
+    <img src="/assets/images/venue/barn.jpg" alt="">
+    <div class="picture-legend">Love is in the air</div>
+    <div class="mask"></div>
+  </a>
+</div>
+<!-- /item -->
+<!-- item -->
+<div class="mansonry-item col-sm-3" style="position: absolute; left: 0px; top: 214px;">
+  <a href="/gallery">
+    <img src="/assets/images/venue/beer.jpeg" alt="">
+    <div class="picture-legend">Beer!!!</div>
+    <div class="mask"></div>
+  </a>
+</div>
+<!-- /item -->
+<!-- item -->
+<div class="mansonry-item col-sm-3" style="position: absolute; left: 204px; top: 214px;">
+  <a href="/gallery">
+    <img src="/assets/images/venue/mainroom2.jpg" alt="">
+    <div class="picture-legend">Yes, i really love it</div>
+    <div class="mask"></div>
+  </a>
+</div>
+<!-- /item -->
+<!-- item -->
+<div class="mansonry-item col-sm-3" style="position: absolute; left: 404px; top: 214px;">
+  <a href="/gallery">
+    <img src="/assets/images/venue/outside.jpg" alt="">
+    <div class="picture-legend">That's Amazing!</div>
+    <div class="mask"></div>
+  </a>
+</div>
+<!-- /item -->
+<!-- item -->
+<div class="mansonry-item col-sm-3" style="position: absolute; left: 606px; top: 214px;">
+  <a href="/gallery">
+    <img src="/assets/images/venue/front.jpg" alt="">
+    <div class="picture-legend">I love you</div>
+    <div class="mask"></div>
+  </a>
+</div>
+<!-- /item -->

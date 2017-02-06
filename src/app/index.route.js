@@ -12,6 +12,16 @@
         controller: 'HomeController',
         controllerAs: 'home'
       })
+      .when('/venue', {
+        templateUrl: 'app/components/venue/venue.html',
+        controller: 'VenueController',
+        controllerAs: 'venue'
+      })
+      .when('/gallery', {
+        templateUrl: 'app/components/gallery/gallery.html',
+        controller: 'GalleryController',
+        controllerAs: 'gallery'
+      })
       .otherwise({
         redirectTo: '/'
       });
