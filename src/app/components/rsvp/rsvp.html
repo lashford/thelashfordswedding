@@ -1,0 +1,146 @@
+<!-- content -->
+<div class="page-content">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1 couple-container">
+
+				<h1 class="title1 couple-title1 title1-border">R.S.V.P</h1>
+
+				<!-- RSVP Form -->
+				<form id="contactForm" name="rsvpForm">
+
+					<!-- Coming? Form Field -->
+					<div class="row">
+						<h3>Can you join us on our special day?</h3>
+						<div class="col-md-6">
+							<div class="form-group form-send">
+								<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+									<span class="fa fa-paper-plane"> &nbsp;</span>Yes
+								</button>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group form-send">
+								<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+									<span class="fa fa-paper-plane"> &nbsp;</span>No
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Invite Type Form Field -->
+					<div class="row">
+						<h3>Have you received an 'All Day' or 'Evening' invitation</h3>
+						<div class="col-md-6">
+							<div class="form-group form-send">
+								<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+									<span class="fa fa-paper-plane"> &nbsp;</span>All Day
+								</button>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group form-send">
+								<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+									<span class="fa fa-paper-plane"> &nbsp;</span>Evening
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- ATTENDING EVENING -->
+					<div class="row">
+						<h3>Please give the names of guests attending</h3>
+							<div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="name">Guest Name:</label>
+										<input type="text" id="name" name="name" ng-model="rsvp.rsvpData.guest.name" class="form-control required" placeholder="Names" required/>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="dietary">Dietary Requirments:</label>
+										<select name="dietary" id="dietary" class="form-control" ng-model="rsvp.rsvpData.guest.dietary">
+											<option value="None">None</option>
+											<option value="Vegi">Vegitarian</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="pull-right">
+								<button type="button" ng-click="" class="btn btn-1c">
+									<span class="fa fa-paper-plane"> &nbsp;</span>Add Guest
+								</button>
+							</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<!-- NOT ATTENDING -->
+					<div class="row">
+						<h3>We are sorry you are unable to attend our wedding, could you please provide your names, so that we can update our guests list.</h3>
+						<!-- Form Field -->
+						<div class="form-group">
+							<label for="name">Invited Guest Names:</label>
+							<input type="text" id="name" name="name" ng-model="rsvp.rsvpData.names" class="form-control required" placeholder="Names" required/>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
+					<!-- ATTENDING ALL DAY -->
+					<div class="row">
+						<h3>Please give the names of guests attending</h3>
+						<div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="name">Guest Name:</label>
+									<input type="text" id="name" name="name" ng-model="rsvp.rsvpData.guest.name" class="form-control required" placeholder="Names" required/>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="dietary">Dietary Requirments:</label>
+									<select name="dietary" id="dietary" class="form-control" ng-model="rsvp.rsvpData.guest.dietary">
+										<option value="None">None</option>
+										<option value="Child">Child</option>
+										<option value="Vegi">Vegitarian</option>
+										<option value="Other">Other (Please Specify)</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="pull-right">
+							<button type="button" ng-click="" class="btn btn-1c">
+								<span class="fa fa-paper-plane"> &nbsp;</span>Add Guest
+							</button>
+						</div>
+				  </div>
+					<div class="clearfix"></div>
+
+
+					<div class="row">
+						<!-- Email Form Field  -->
+						<div class="form-group">
+							<label for="email">Your Email (optional):</label>
+							<input type="email" id="email" name="email" ng-model="rsvp.rsvpData.email" class="form-control required" placeholder="Email"/>
+						</div>
+
+	          <!-- Message Form Field -->
+	          <div class="form-group">
+	          	<label for="message">Message (optional):</label>
+	            	<textarea class="form-control required" id="message" ng-model="rsvp.rsvpData.msg" name="message" placeholder="Message"></textarea>
+	          </div>
+
+	          <!-- Submit Form Field -->
+	          <div class="form-group form-send">
+	          	<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+								<span class="fa fa-paper-plane"> &nbsp;</span>send
+							</button>
+	          </div>
+					</div>
+
+      	</form>
+
+      	<div id="contactSuccess" class="contact-feedback">Your message has been sent!</div>
+
+		</div>
+	</div>
+</div>
