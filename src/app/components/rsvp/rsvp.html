@@ -11,35 +11,46 @@
 					<!-- Coming? Form Field -->
 					<div class="row">
 						<h3>Can you join us on our special day?</h3>
-						<div class="col-md-6">
+						<div class="col-md-6" ng-hide="rsvp.rsvpData.rsvp == false">
 							<div class="form-group form-send">
-								<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+								<button type="button" ng-click="rsvp.rsvpData.rsvp = true;" class="btn btn-1c">
 									<span class="fa fa-paper-plane"> &nbsp;</span>Yes
 								</button>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6" ng-hide="rsvp.rsvpData.rsvp == true">
 							<div class="form-group form-send">
-								<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+								<button type="button" ng-click="rsvp.rsvpData.rsvp = false" class="btn btn-1c">
 									<span class="fa fa-paper-plane"> &nbsp;</span>No
 								</button>
 							</div>
 						</div>
 					</div>
 
+					<!-- NOT ATTENDING -->
+					<div class="row" ng-show="rsvp.rsvpData.rsvp == false">
+						<h3>We are sorry you are unable to attend our wedding, could you please provide your names, so that we can update our guests list.</h3>
+						<!-- Form Field -->
+						<div class="form-group">
+							<label for="name">Invited Guest Names:</label>
+							<input type="text" id="name" name="name" ng-model="rsvp.rsvpData.no.names" class="form-control required" placeholder="Names" required/>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+
 					<!-- Invite Type Form Field -->
-					<div class="row">
+					<div class="row" ng-show="rsvp.rsvpData.rsvp == true">
 						<h3>Have you received an 'All Day' or 'Evening' invitation</h3>
-						<div class="col-md-6">
+						<div class="col-md-6" ng-hide="rsvp.rsvpData.evening.enabled == true">
 							<div class="form-group form-send">
-								<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+								<button type="button" ng-click="rsvp.rsvpData.allday.enabled = true" class="btn btn-1c">
 									<span class="fa fa-paper-plane"> &nbsp;</span>All Day
 								</button>
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6" ng-hide="rsvp.rsvpData.allday.enabled == true">
 							<div class="form-group form-send">
-								<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+								<button type="button" ng-click="rsvp.rsvpData.evening.enabled = true" class="btn btn-1c">
 									<span class="fa fa-paper-plane"> &nbsp;</span>Evening
 								</button>
 							</div>
@@ -47,19 +58,19 @@
 					</div>
 
 					<!-- ATTENDING EVENING -->
-					<div class="row">
+					<div class="row" ng-show="rsvp.rsvpData.rsvp == true && rsvp.rsvpData.evening.enabled == true">
 						<h3>Please give the names of guests attending</h3>
-							<div>
+							<div ng-repeat="guest in rsvp.rsvpData.evening.guests">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="name">Guest Name:</label>
-										<input type="text" id="name" name="name" ng-model="rsvp.rsvpData.guest.name" class="form-control required" placeholder="Names" required/>
+										<input type="text" id="name" name="name" ng-model="guest.name" class="form-control required" placeholder="Names" required/>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="dietary">Dietary Requirments:</label>
-										<select name="dietary" id="dietary" class="form-control" ng-model="rsvp.rsvpData.guest.dietary">
+										<select name="dietary" id="dietary" class="form-control" ng-model="guest.dietary">
 											<option value="None">None</option>
 											<option value="Vegi">Vegitarian</option>
 										</select>
@@ -67,38 +78,27 @@
 								</div>
 							</div>
 							<div class="pull-right">
-								<button type="button" ng-click="" class="btn btn-1c">
+								<button type="button" ng-click="rsvp.rsvpData.evening.guests" class="btn btn-1c">
 									<span class="fa fa-paper-plane"> &nbsp;</span>Add Guest
 								</button>
 							</div>
 					</div>
 					<div class="clearfix"></div>
 
-					<!-- NOT ATTENDING -->
-					<div class="row">
-						<h3>We are sorry you are unable to attend our wedding, could you please provide your names, so that we can update our guests list.</h3>
-						<!-- Form Field -->
-						<div class="form-group">
-							<label for="name">Invited Guest Names:</label>
-							<input type="text" id="name" name="name" ng-model="rsvp.rsvpData.names" class="form-control required" placeholder="Names" required/>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-
 					<!-- ATTENDING ALL DAY -->
-					<div class="row">
+					<div class="row" ng-show="rsvp.rsvpData.rsvp == true && rsvp.rsvpData.allday.enabled == true">
 						<h3>Please give the names of guests attending</h3>
-						<div>
+						<div ng-repeat="guest in rsvp.rsvpData.allday.guests">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="name">Guest Name:</label>
-									<input type="text" id="name" name="name" ng-model="rsvp.rsvpData.guest.name" class="form-control required" placeholder="Names" required/>
+									<input type="text" id="name" name="name" ng-model="guest.name" class="form-control required" placeholder="Names" required/>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="dietary">Dietary Requirments:</label>
-									<select name="dietary" id="dietary" class="form-control" ng-model="rsvp.rsvpData.guest.dietary">
+									<select name="dietary" id="dietary" class="form-control" ng-model="guest.dietary">
 										<option value="None">None</option>
 										<option value="Child">Child</option>
 										<option value="Vegi">Vegitarian</option>
@@ -116,7 +116,7 @@
 					<div class="clearfix"></div>
 
 
-					<div class="row">
+					<div class="row" ng-show="rsvp.rsvpData.allday.enabled == true || rsvp.rsvpData.evening.enabled == true || rsvp.rsvpData.rsvp == false ">
 						<!-- Email Form Field  -->
 						<div class="form-group">
 							<label for="email">Your Email (optional):</label>

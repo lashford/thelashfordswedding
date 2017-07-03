@@ -10,13 +10,21 @@
 
    var vm = this;
    vm.rsvpData = {
-     'names': "",
+     'rsvp': undefined,
+     'no': {
+       'guests': ""
+     },
+     'allday': {
+       'enabled': undefined,
+       'guests': [{'name':"", 'dietary':""}]
+     },
+     'evening': {
+       'enabled': undefined,
+       'guests': [{'name':"", 'dietary':""}]
+     },
      'email': "",
-     'reqs': "",
-     'guests':"",
-     'attending':"",
      'msg': "",
-
+     'complete':false
    };
 
    vm.submitRSVP = function() {
