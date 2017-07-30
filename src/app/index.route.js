@@ -27,6 +27,11 @@
         controller: 'RSVPController',
         controllerAs: 'rsvp'
       })
+      .when('/hotels', {
+        templateUrl: 'app/components/hotels/hotels.html',
+        controller: 'Hotelsontroller',
+        controllerAs: 'hotels'
+      })
       .otherwise({
         redirectTo: '/'
       });
