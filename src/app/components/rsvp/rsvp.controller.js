@@ -6,7 +6,7 @@
     .controller('RSVPController', RSVPController);
 
   /** @ngInject */
-  function RSVPController($log, $http, $httpParamSerializerJQLike) {
+  function RSVPController($log) {
 
    var vm = this;
    vm.complete = false;
@@ -33,7 +33,7 @@
      $log.info("submit sent");
      $log.info(vm.rsvpData);
      vm.complete = true;
-     sendRSVPEmail();
+     sendRSVPEmail(vm.rsvpData);
    };
 
    vm.resetRSVP = function() {
@@ -52,29 +52,21 @@
      }
    };
 
-   function sendRSVPEmail() {
-      // var base64Key = 'YXBpOmtleS0wMjhkYmQ3OGRhOWY1NDc4MzcxYzMyMWQ5MWMzZDg1Zg=='
+   function sendRSVPEmail(data) {
 
-      var payload = {'from':'Mailgun Sandbox <postmaster@sandbox43059b3101e641558d817d640059579f.mailgun.org>',
-                    'to':'Alex Lashford <alexlashford@gmail.com>',
-                    'subject':'Hello Alex Lashford',
-                    'text':'Congratulations Alex Lashford, you just sent an email with Mailgun!  You are truly awesome!'};
+      $log.info("Post sent " + data);
 
-      var params = $httpParamSerializerJQLike(payload);
-      $log.info(params);
-
-      $http({
-          method: 'POST',
-          url: 'https://api:pubkey-c5216c2adf5c620adc7ff9c117e0b91e@api.mailgun.net/v3/sandbox43059b3101e641558d817d640059579f.mailgun.org/messages',
-          // url: 'https://api.mailgun.net/v3/sandbox43059b3101e641558d817d640059579f.mailgun.org/messages',
-          //headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Authorization': 'Basic ' + base64Key},
-          headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-          data: params
-      }).then(function successCallback(response) {
-        $log.info("Email sent "+response);
-      }, function errorCallback(response) {
-        $log.error("All gone to shit "+response);
-      });
+      // $http({
+      //     method: 'POST',
+      //     url: 'https://api.mailgun.net/v3/sandbox43059b3101e641558d817d640059579f.mailgun.org/messages',
+      //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Authorization': 'Basic ' + base64Key},
+      //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+      //     data: params
+      // }).then(function successCallback(response) {
+      //   $log.info("Email sent "+response);
+      // }, function errorCallback(response) {
+      //   $log.error("All gone to shit "+response);
+      // });
    }
 
   }

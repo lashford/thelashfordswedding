@@ -29,7 +29,7 @@
       })
       .when('/hotels', {
         templateUrl: 'app/components/hotels/hotels.html',
-        controller: 'Hotelsontroller',
+        controller: 'HotelsController',
         controllerAs: 'hotels'
       })
       .otherwise({

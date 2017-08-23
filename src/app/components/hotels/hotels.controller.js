@@ -3,13 +3,10 @@
 
   angular
     .module('app')
-    .controller('RSVPController', RSVPController);
+    .controller('HotelsController', HotelsController);
 
   /** @ngInject */
-  function RSVPController() {
-
-    //var vm = this;
-
+  function HotelsController() {
   }
 
-});
+})();

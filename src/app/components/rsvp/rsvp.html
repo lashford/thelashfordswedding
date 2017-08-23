@@ -6,7 +6,7 @@
 				<h1 class="title1 couple-title1 title1-border">R.S.V.P</h1>
 
 				<!-- RSVP Form -->
-				<form id="contactForm" name="rsvpForm" ng-show="rsvp.complete == false">
+				<form id="rsvpForm" name="rsvpForm" ng-show="rsvp.complete == false" novalidate>
 
 					<!-- Coming? Form Field -->
 					<div class="row">
@@ -37,8 +37,8 @@
 						<div class="col-md-12">
 							<!-- Form Field -->
 							<div class="form-group">
-								<label for="name">Invited Guest Names:</label>
-								<input type="text" id="names" ng-model="rsvp.rsvpData.no.names" class="form-control required" placeholder="Names" required/>
+								<label for="names">Invited Guest Names:</label>
+								<input type="text" id="names" name="uNames" ng-model="rsvp.rsvpData.no.names" class="form-control" placeholder="Names"/>
 							</div>
 						</div>
 					</div>
@@ -73,8 +73,8 @@
 						<div ng-repeat="guest in rsvp.rsvpData.evening.guests">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="name">Guest Name:</label>
-									<input type="text" id="name{{$index}}" ng-model="guest.name" class="form-control required" placeholder="Names" required/>
+									<label for="name{{$index}}">Guest Name:</label>
+									<input type="text" id="name{{$index}}" ng-model="guest.name" class="form-control" placeholder="Names"/>
 								</div>
 							</div>
 							<div class="col-md-5">
@@ -110,8 +110,8 @@
 						<div ng-repeat="guest in rsvp.rsvpData.allday.guests">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="name">Guest Name:</label>
-									<input type="text" id="name{{$index}}" ng-model="guest.name" class="form-control required" placeholder="Names" required/>
+									<label for="name{{$index}}">Guest Name:</label>
+									<input type="text" id="name{{$index}}" ng-model="guest.name" class="form-control" placeholder="Name"/>
 								</div>
 							</div>
 							<div class="col-md-5">
@@ -147,14 +147,15 @@
 						<div class="col-md-12">
 							<!-- Email Form Field  -->
 							<div class="form-group">
-								<label for="email">Your Email (optional):</label>
-								<input type="email" id="email" ng-model="rsvp.rsvpData.email" class="form-control required" placeholder="Email" validate/>
+								<label for="email">Your Email (required):</label>
+								<input type="email" id="email" name="uEmail" ng-model="rsvp.rsvpData.email" class="form-control" placeholder="Email" required="" ng-model-options="{ debounce: 250 }" />
+								<p ng-show="rsvpForm.uEmail.$invalid && !rsvpForm.uEmail.$pristine" class="help-block">Enter a valid email.</p>
 							</div>
 
 		          <!-- Message Form Field -->
 		          <div class="form-group">
 		          	<label for="message">Message (optional):</label>
-		            	<textarea class="form-control required" id="message" ng-model="rsvp.rsvpData.msg" name="message" placeholder="Message"></textarea>
+		            	<textarea class="form-control" id="message" ng-model="rsvp.rsvpData.msg" name="uMessage" placeholder="Message"></textarea>
 		          </div>
 						</div>
 
@@ -167,7 +168,7 @@
 
 						<!-- Submit Form Field -->
 						<div class="col-md-6 form-group form-send">
-							<button type="submit" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
+							<button type="submit" ng-disabled="rsvpForm.$invalid" ng-click="rsvp.submitRSVP()" class="btn btn-1c">
 								<span class="fa fa-paper-plane"> &nbsp;</span>send
 							</button>
 						</div>
@@ -175,12 +176,16 @@
 
       	</form>
 
-      	<div ng-show="rsvp.complete == true" class="text-center">
+      	<div ng-show="rsvp.complete == true && rsvp.rsvpData.rsvp == true" class="text-center">
 					<h2>Thank you for responding to our wedding invitation. </h2>
 					<h3> We are looking forward to seeing you at our big day. </h3>
 					<h3>Checkout the accomodation page if you are thinking of stopping over. </h3>
 				</div>
 
+				<div ng-show="rsvp.complete == true && rsvp.rsvpData.rsvp == false" class="text-center">
+					<h2>Thank you for responding to our wedding invitation. </h2>
+					<h3> We are sorry you are unable to attend our special day, but we hope to see you soon. </h3>
+				</div>
 		</div>
 	</div>
 </div>
