@@ -22,6 +22,16 @@
         controller: 'GalleryController',
         controllerAs: 'gallery'
       })
+      .when('/rsvp', {
+        templateUrl: 'app/components/rsvp/rsvp.html',
+        controller: 'RSVPController',
+        controllerAs: 'rsvp'
+      })
+      .when('/hotels', {
+        templateUrl: 'app/components/hotels/hotels.html',
+        controller: 'HotelsController',
+        controllerAs: 'hotels'
+      })
       .otherwise({
         redirectTo: '/'
       });

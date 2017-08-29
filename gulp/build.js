@@ -62,11 +62,8 @@ gulp.task('html', ['inject', 'partials'], function() {
     .pipe(cssFilter)
     // .pipe($.sourcemaps.init())
     .pipe($.replace(
-      '../../../bower_components/bootstrap/fonts/',
+      '../bower_components/bootstrap/fonts/',
       '/fonts/'))
-    .pipe($.replace(
-      '../../../bower_components/videogular-themes-default/fonts/',
-      '/styles/fonts/'))
     .pipe($.cssnano())
     .pipe($.rev())
     // .pipe($.sourcemaps.write('maps'))
@@ -90,11 +87,10 @@ gulp.task('html', ['inject', 'partials'], function() {
 // Only applies for fonts from bower dependencies
 // Custom fonts are handled by the "other" task
 gulp.task('fonts', function() {
-  return gulp.src($.mainBowerFiles())
-    .pipe($.filter('**/*.{eot,otf,svg,ttf,woff,woff2}'))
+  return gulp.src(['bower_components/bootstrap/fonts/*.*'], {base:"."})
     .pipe($.flatten())
-    .pipe(gulp.dest(path.join(conf.paths.dist, 'styles/fonts/')));
-});
+    .pipe(gulp.dest('dist/fonts/'));
+  });
 
 gulp.task('other', function() {
   var fileFilter = $.filter(function(file) {
