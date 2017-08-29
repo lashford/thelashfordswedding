@@ -6,7 +6,7 @@
     .controller('RSVPController', RSVPController);
 
   /** @ngInject */
-  function RSVPController($log) {
+  function RSVPController($log, $http) {
 
    var vm = this;
    vm.complete = false;
@@ -52,21 +52,17 @@
      }
    };
 
-   function sendRSVPEmail(data) {
-
-      $log.info("Post sent " + data);
-
-      // $http({
-      //     method: 'POST',
-      //     url: 'https://api.mailgun.net/v3/sandbox43059b3101e641558d817d640059579f.mailgun.org/messages',
-      //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Authorization': 'Basic ' + base64Key},
-      //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-      //     data: params
-      // }).then(function successCallback(response) {
-      //   $log.info("Email sent "+response);
-      // }, function errorCallback(response) {
-      //   $log.error("All gone to shit "+response);
-      // });
+   function sendRSVPEmail(emailData) {
+      $http({
+          method: 'POST',
+          url: 'http://home.lashford.info/rsvp',
+          headers: {'Content-Type': 'application/json'},
+          data: emailData
+      }).then(function successCallback(response) {
+        $log.info("Email sent "+response);
+      }, function errorCallback(response) {
+        $log.error("All gone to shit "+response);
+      });
    }
 
   }
