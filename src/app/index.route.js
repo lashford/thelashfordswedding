@@ -32,6 +32,11 @@
         controller: 'HotelsController',
         controllerAs: 'hotels'
       })
+      .when('/gifts', {
+        templateUrl: 'app/components/gifts/gifts.html',
+        controller: 'GiftsController',
+        controllerAs: 'gifts'
+      })
       .otherwise({
         redirectTo: '/'
       });
