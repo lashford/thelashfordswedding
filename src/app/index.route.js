@@ -17,11 +17,6 @@
         controller: 'VenueController',
         controllerAs: 'venue'
       })
-      .when('/gallery', {
-        templateUrl: 'app/components/gallery/gallery.html',
-        controller: 'GalleryController',
-        controllerAs: 'gallery'
-      })
       .when('/rsvp', {
         templateUrl: 'app/components/rsvp/rsvp.html',
         controller: 'RSVPController',
@@ -36,6 +31,11 @@
         templateUrl: 'app/components/gifts/gifts.html',
         controller: 'GiftsController',
         controllerAs: 'gifts'
+      })
+      .when('/photos', {
+        templateUrl: 'app/components/photos/photos.html',
+        controller: 'PhotosController',
+        controllerAs: 'photos'
       })
       .otherwise({
         redirectTo: '/'
