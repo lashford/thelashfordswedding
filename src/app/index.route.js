@@ -8,10 +8,15 @@
   function routeConfig($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'app/components/home/home.html',
-        controller: 'HomeController',
-        controllerAs: 'home'
+        templateUrl: 'app/components/thanks/thanks.html',
+        controller: 'ThanksController',
+        controllerAs: 'thanks'
       })
+      // .when('/', {
+      //   templateUrl: 'app/components/home/home.html',
+      //   controller: 'HomeController',
+      //   controllerAs: 'home'
+      // })
       .when('/venue', {
         templateUrl: 'app/components/venue/venue.html',
         controller: 'VenueController',
